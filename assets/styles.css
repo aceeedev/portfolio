@@ -1,0 +1,29 @@
+:root {
+    --primaryColor: #6AA68C;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/fonts/AeonikTRIAL-Regular.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    font-family: 'Aeonik', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 30px;
+}
+
+.highlight {
+    color: var(--primaryColor);
+}
