@@ -1,21 +1,25 @@
 <template>
     <div class="container">
         <div class="mockup">
-            <p>Andrew Collins</p>
+            <p class="center-align" style="font-size: 20px; font-weight: bold;">Andrew Collins</p>
 
-            <img />
+            <img style="border-radius: 12px; height: 250px; display: block; margin-left: auto; margin-right: auto;" src="~assets/images/intro.png" />
 
-            <p></p>
-            <p></p>
+            <p>Hello, Welcome!</p>
+            <p>This is my portfolio!</p>
 
-            <div class="center-align" style="gap: 10px;">
-                <img src="~assets/icons/previous_button.svg"/>
-                <img src="~assets/icons/pause_button.svg"/>
-                <img src="~assets/icons/next_button.svg"/>
+            <ProgressBar percentage="33" />
+            
+            <div class="center-align" style="gap: 30px;">
+                <img src="~assets/icons/previous_button.svg" />
+                <img src="~assets/icons/pause_button.svg" />
+                <img src="~assets/icons/next_button.svg" />
             </div>
 
-            <div>
-
+            <div class="center-align" style="gap: 20px;">
+                <img src="~assets/icons/spotify.svg" />
+                <img src="~assets/icons/github.svg" />
+                <img src="~assets/icons/linkedin.svg" />
             </div>
 
         </div>
