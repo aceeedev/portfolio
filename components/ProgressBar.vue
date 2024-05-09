@@ -20,8 +20,6 @@
             percent += " - 10px";
           }
 
-          console.log(percent);
-
           return percent;
         },
       }
