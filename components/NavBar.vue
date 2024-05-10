@@ -1,10 +1,10 @@
 <template>
   <div class="navbar">
-    <IconButton href="home" :newTab="false" src="_nuxt/assets/icons/home.svg" :size="36"/>
-    <IconButton href="about" :newTab="false" src="_nuxt/assets/icons/user.svg" :size="36"/>
-    <IconButton href="projects" :newTab="false" src="_nuxt/assets/icons/folder.svg" :size="36"/>
-    <IconButton href="experience" :newTab="false" src="_nuxt/assets/icons/briefcase.svg" :size="36"/>
-    <IconButton href="contact" :newTab="false" src="_nuxt/assets/icons/mail.svg" :size="36"/>
+    <IconButton href="home" :pointer="true" :newTab="false" src="_nuxt/assets/icons/home.svg" :size="36"/>
+    <IconButton href="about" :pointer="true" :newTab="false" src="_nuxt/assets/icons/user.svg" :size="36"/>
+    <IconButton href="projects" :pointer="true" :newTab="false" src="_nuxt/assets/icons/folder.svg" :size="36"/>
+    <IconButton href="experience" :pointer="true" :newTab="false" src="_nuxt/assets/icons/briefcase.svg" :size="36"/>
+    <IconButton href="contact" :pointer="true" :newTab="false" src="_nuxt/assets/icons/mail.svg" :size="36"/>
   </div>
 </template>
 

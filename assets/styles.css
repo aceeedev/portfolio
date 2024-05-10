@@ -32,12 +32,7 @@ p {
     color: var(--primaryColor);
 }
 
-
-.container {
-    display: grid;
-    gap: 50px;
-}
-
+/* helpers */
 
 .center-align {
     display: flex;
