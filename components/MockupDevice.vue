@@ -24,81 +24,23 @@
   </div>
 </template>
 
+<script setup lang="ts">
+  const props = defineProps<{
+    currentPercentage: number,
+    currentSectionIndex: number
+  }>()
+</script>
+
 <script lang="ts">
   const sectionIDs = ["home", "about", "projects", "experience", "contact"]
-  let sections: NodeListOf<HTMLElement> | [] = [];
 
   export default {
-    data() {
-      return {
-        currentPercentage: 1,
-        currentSectionIndex: 0,
-        lastKnownScrollPosition: 0,
-        ticking: false,
-        func: () => {},
-      }
-    },
     computed: {
       percent(): string  {
         return this.currentPercentage.toString()
       }
     },
-    mounted() {
-      sections = document.querySelectorAll('section');
-      this.func = this.throttle(this.scrollEvent, 10);
-      this.func(); // initially set bar
-
-      window.addEventListener('scroll', this.func);
-    },
-    unmounted() {
-      window.removeEventListener('scroll', this.func);
-    },
     methods: {
-      throttle(callbackFn: any, limit: number) {
-          let wait = false;                  
-          return function () {              
-              if (!wait) {                  
-                  callbackFn.call();           
-                  wait = true;               
-                  setTimeout(function () {   
-                      wait = false;          
-                  }, limit);
-              }
-          }
-      },
-      scrollEvent() {
-        // console.log(this.findVisibility(sections[0]))
-        // console.log(this.findVisibility(sections[1]))
-        // console.log(this.findVisibility(sections[2]))
-        // console.log(this.findVisibility(sections[3]))
-        // console.log(this.findVisibility(sections[4]))
-        // console.log(this.findVisibility(sections[5]))
-        // console.log(`section id: ${this.currentSectionIndex}`)
-        // console.log("\n ")
-        for (let i = sections.length - 1; i >= 0; i--) {
-          //console.log(`i: ${i}`)
-          let section = sections[i];
-          let percent = this.findVisibility(section);
-          //console.log(section.textContent);
-          //console.log(percent);
-          
-          if (percent != 0) {
-            this.currentPercentage = percent;
-            this.currentSectionIndex = i - 1;
-            //console.log(this.currentSectionIndex);
-            
-            break;
-          }
-        } 
-      },
-      findVisibility(element: any) {
-        const windowBottom = window.scrollY + window.innerHeight;
-        const elementTop = element.offsetTop;
-        const elementHeight = element.offsetHeight;
-        const percentage = ((windowBottom - (elementTop - elementHeight)) / elementHeight) * 100;
-
-        return percentage >= 100 ? 0 : (percentage <= 0 ? 0 : Math.round(percentage));
-      },
       previousHref(): string {
         let href = "home"
 
