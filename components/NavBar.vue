@@ -14,7 +14,7 @@
 
 <style>
   .navbar {
-    height: 50vh;
+    height: max(50vh, 300px);
     width: 60px;
     top: 25%;
     position: sticky; 

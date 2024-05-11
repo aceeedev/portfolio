@@ -30,10 +30,11 @@
   progress {
       border-radius: 4px; 
       height: 8px;
-      width: 350px;
+      width: max(22vw, 320px);
       display: block; 
       margin-left: auto; 
       margin-right: auto;
+      margin-top: 30px;
   }
 
   progress::-webkit-progress-bar {

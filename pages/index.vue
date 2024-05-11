@@ -1,7 +1,8 @@
 <template>
     <div class="container">
-        <MockupDevice style="grid-column: 1;"/>
-
+        <div v-if="isMockup">
+            <MockupDevice style="grid-column: 1;"/>
+        </div>
         <div style="grid-column: 2;">
             <section class="hero" id="home" style="margin-top: 0;">
                 <h1 style="margin: 0px">I'm <span class="highlight">Andrew Collins</span></h1>
@@ -40,11 +41,38 @@
             <section id="contact">
                 <h1>Contact</h1>
             </section>
+            <section id="ghost" style="height: 10vh;">
+
+            </section>
         </div>
 
         <NavBar style="grid-column: 3;"/>
     </div>
 </template>
+
+<script lang="ts">
+  export default {
+    data:() => {
+        return {
+            isDesktop: true,
+            isMockup: true,
+      }
+    },
+    mounted() {
+        this.checkScreenSize(); // initial screen size check
+
+        window.addEventListener("resize", this.checkScreenSize);
+    },
+    unmounted() {
+        window.removeEventListener("resize", this.checkScreenSize);
+    },
+    methods: {
+        checkScreenSize() {
+            this.isMockup = window.innerWidth > 770;
+        }
+    }
+  }
+</script>
 
 <style>
     .container {
