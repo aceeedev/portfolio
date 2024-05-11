@@ -3,7 +3,7 @@
         <MockupDevice style="grid-column: 1;"/>
 
         <div style="grid-column: 2;">
-            <section class="hero" id="home">
+            <section class="hero" id="home" style="margin-top: 0;">
                 <h1 style="margin: 0px">I'm <span class="highlight">Andrew Collins</span></h1>
                 <p>
                     I'm committed to fostering collaboration, communication, and the opportunity to 
@@ -54,6 +54,7 @@
 
     section {
         height: 100vh;
+        margin-top: 10%;
     }
 
     .hero {
