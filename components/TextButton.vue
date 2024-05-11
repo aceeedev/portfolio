@@ -1,24 +1,19 @@
 <template>
-  <button 
-    type="button" 
-    class="btn"> 
+  <a :href="href" :target="target" class="btn" style="text-decoration: none; white-space: nowrap;"> 
     <slot> </slot> 
-  </button>
+  </a> 
 </template>
 
 <script setup lang="ts">
   const props = defineProps<{
     href: string,
+    target: string
   }>()
-</script>
-
-<script lang="ts">
-  
 </script>
 
 <style>
   .btn {
-    height: 65px;
+    height: 42px;
     padding: 10px;
     border: 4px;
     border-style: solid;

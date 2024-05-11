@@ -12,8 +12,8 @@
                     me here!
                 </p>
                 <div style="display: flex; gap: 50px">
-                    <TextButton href="">Résumé</TextButton>
-                    <TextButton href="">Projects!</TextButton>
+                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank">Résumé <img src="~/assets/icons/file_text.svg" style="height: 27px;"/> </TextButton>
+                    <TextButton @click="goToSection('projects')" href="" target="">Projects!</TextButton>
                 </div>
             </section>
 
@@ -69,6 +69,10 @@
     methods: {
         checkScreenSize() {
             this.isMockup = window.innerWidth > 770;
+        },
+        goToSection(sectionID: string) {
+            const element = document.getElementById(sectionID);
+            element!.scrollIntoView({behavior: 'smooth'}); 
         }
     }
   }
