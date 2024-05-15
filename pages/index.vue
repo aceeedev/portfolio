@@ -12,7 +12,7 @@
                     me here!
                 </p>
                 <div style="display: flex; gap: 50px">
-                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank">Résumé <img src="~/assets/icons/file_text.svg" style="height: 32px;"/> </TextButton>
+                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px;"/> </TextButton>
                     <TextButton @click="goToSection('projects')" href="" target="">Projects!</TextButton>
                 </div>
             </section>
@@ -33,7 +33,7 @@
                         What I'm currently <br> jamming out to 🕺  
                     </p>
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <img src="~assets/images/intro.png" style="border-radius: 20px; height: 200px;"/>
+                        <NuxtImg src="/images/intro.png" height="200"; style="border-radius: 20px;"/>
                         <p style="margin-bottom: 0px; margin-top: 10px; font-weight: bold; text-align: center;">
                             Oogway Ascends
                         </p>
@@ -46,6 +46,12 @@
 
             <section id="projects">
                 <h1>Featured Projects</h1>
+
+                <Card src="/images/intro.png" title="Toki Alarm" :tags="['iOS', 'Flutter', 'SQLite']" :links="['https://apps.apple.com/us/app/toki-alarm-puzzle-alarm-clock/id1615680878', 'https://github.com/aceeedev/toki']" date="">
+                    An alarm clock app for iOS with 950+ users that requires the user to solve a puzzle to turn off the alarm. 
+                    Alongside the app, I created a business plan, marketing plan, and financials which resulted in a successful 
+                    business.
+                </Card>
             </section>
 
             <section id="experience">

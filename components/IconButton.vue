@@ -1,9 +1,9 @@
 <template>
   <a v-if="newTab" :href="href" target="_blank" class="center-align" :style="aStyle">
-    <img :src="src" :style="imgStyle"/>
+    <NuxtImg :src="src" :style="imgStyle"/>
   </a>
   <a v-else @click="goToSection(href)" class="center-align" :style="aStyle">
-    <img :src="src" :style="imgStyle"/>
+    <NuxtImg :src="src" :style="imgStyle"/>
   </a>
 </template>
 

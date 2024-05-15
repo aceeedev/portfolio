@@ -11,7 +11,7 @@
   }>()
 </script>
 
-<style>
+<style scoped>
   .btn {
     height: 42px;
     padding: 10px;

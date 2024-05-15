@@ -1,10 +1,10 @@
 <template>
   <div class="navbar">
-    <IconButton href="home" :pointer="true" :newTab="false" src="_nuxt/assets/icons/home.svg" :size="36"/>
-    <IconButton href="about" :pointer="true" :newTab="false" src="_nuxt/assets/icons/user.svg" :size="36"/>
-    <IconButton href="projects" :pointer="true" :newTab="false" src="_nuxt/assets/icons/folder.svg" :size="36"/>
-    <IconButton href="experience" :pointer="true" :newTab="false" src="_nuxt/assets/icons/briefcase.svg" :size="36"/>
-    <IconButton href="contact" :pointer="true" :newTab="false" src="_nuxt/assets/icons/mail.svg" :size="36"/>
+    <IconButton href="home" :pointer="true" :newTab="false" src="/icons/home.svg" :size="36"/>
+    <IconButton href="about" :pointer="true" :newTab="false" src="/icons/user.svg" :size="36"/>
+    <IconButton href="projects" :pointer="true" :newTab="false" src="/icons/folder.svg" :size="36"/>
+    <IconButton href="experience" :pointer="true" :newTab="false" src="/icons/briefcase.svg" :size="36"/>
+    <IconButton href="contact" :pointer="true" :newTab="false" src="/icons/mail.svg" :size="36"/>
   </div>
 </template>
 
@@ -14,7 +14,7 @@
   }>()
 </script>
 
-<style>
+<style scoped>
   .navbar {
     height: max(50vh, 300px);
     width: 60px;
