@@ -33,7 +33,7 @@
                         What I'm currently <br> jamming out to 🕺  
                     </p>
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <NuxtImg src="/images/intro.png" height="200"; style="border-radius: 20px;"/>
+                        <NuxtImg src="/images/sections/intro.png" height="200"; style="border-radius: 20px;"/>
                         <p style="margin-bottom: 0px; margin-top: 10px; font-weight: bold; text-align: center;">
                             Oogway Ascends
                         </p>
@@ -46,11 +46,8 @@
 
             <section id="projects">
                 <h1>Featured Projects</h1>
-
-                <Card src="/images/intro.png" title="Toki Alarm" :tags="['iOS', 'Flutter', 'SQLite']" :links="['https://apps.apple.com/us/app/toki-alarm-puzzle-alarm-clock/id1615680878', 'https://github.com/aceeedev/toki']" date="">
-                    An alarm clock app for iOS with 950+ users that requires the user to solve a puzzle to turn off the alarm. 
-                    Alongside the app, I created a business plan, marketing plan, and financials which resulted in a successful 
-                    business.
+                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 30px">
+                        {{ project.description }}
                 </Card>
             </section>
 
@@ -71,6 +68,8 @@
 </template>
 
 <script lang="ts">
+    import { LINKS, PROJECTS } from "~/constants/index" 
+    
     let sections: NodeListOf<HTMLElement> | [] = [];
 
   export default {
@@ -152,6 +151,14 @@
         goToSection(sectionID: string) {
             const element = document.getElementById(sectionID);
             element!.scrollIntoView({behavior: 'smooth'}); 
+        }
+    },
+    computed: {
+        LINKS() {
+            return LINKS;
+        },
+        PROJECTS() {
+            return PROJECTS;
         }
     }
   }

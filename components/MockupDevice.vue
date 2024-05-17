@@ -2,7 +2,7 @@
   <div class="mockup">
       <p class="center-align" style="font-size: 20px; font-weight: bold">Andrew Collins</p>
 
-      <NuxtImg src="/images/intro.png" class="styledImg" />
+      <NuxtImg src="/images/sections/intro.png" class="styledImg" />
 
       <p class="indent" style="font-size: 40px; font-weight: bold; margin-bottom: 0px;">Hello, Welcome!</p>
       <p class="indent" style="font-size: 25px; margin-top: 0px;">This is my portfolio!</p>

@@ -1,7 +1,9 @@
 
 <template>
-  <div class="center-align">
-    <NuxtImg :src="src" height="200" style="border-radius: 12px; margin-right: 30px;" />
+  <div style="display: flex; flex-direction: row;">
+    <div class="img-frame">
+      <NuxtImg :src="src" width="200px" height="200" style="border-radius: 12px;"/>
+    </div>
 
     <div>
       <p style="font-size: 30px; font-weight: bold;">
@@ -12,13 +14,13 @@
         {{ date }}
       </p>
 
-      <div v-if="links.length != 0" style="margin-bottom: 10px">
-        <span v-for="(item, index) in links">
-          <a href="item" target="_blank" style="text-decoration: underline solid var(--primaryColor); color: var(--primaryColor);">
-            {{ getHostnameFromRegex(item) }}
+      <div v-if="formattedLinks.length != 0" style="margin-bottom: 10px">
+        <span v-for="(item, index) in formattedLinks">
+          <a :href="item.link" target="_blank" style="text-decoration: underline solid var(--primaryColor); color: var(--primaryColor);">
+            {{ item.name}}
           </a>
           
-          {{ index != links.length - 1 ? " | " : "" }}
+          {{ index != formattedLinks.length - 1 ? " | " : "" }}
         </span>
       </div>
 
@@ -27,7 +29,7 @@
       </p>
 
       <div class="wrap">
-        <p v-if="tags.length != 0" v-for="(item, index) in tags" class="tag">
+        <p v-if="tags.length != 0" v-for="(item, index) in tags" class="tag" style="font-size: 20px;">
           {{ item }}
         </p>
       </div>
@@ -42,7 +44,7 @@
     src: string,
     title: string,
     tags: Array<string>,
-    links: Array<string>,
+    links: Array<string | {link: string; name: string;}>,
     date: string,
   }>()
 </script>
@@ -56,6 +58,20 @@
           const domain = dots.at(-2).replace(/\d/g, '');
 
           return domain.charAt(0).toUpperCase() + domain.slice(1);
+      }
+    },
+    computed: {
+      formattedLinks() {
+        return this.links.map((itm) => {
+          if (typeof itm === "string") {
+            return {
+              'link': itm,
+              'name': this.getHostnameFromRegex(itm),
+            }
+          }
+          
+          return itm;
+        });
       }
     }
   }
@@ -95,4 +111,12 @@
     background-color: transparent;
     font-size: 25px;
   }
+
+  .img-frame {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+
 </style>
