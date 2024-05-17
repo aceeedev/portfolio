@@ -2,23 +2,23 @@
   <div class="mockup">
       <p class="center-align" style="font-size: 20px; font-weight: bold">Andrew Collins</p>
 
-      <NuxtImg src="/images/sections/intro.png" class="styledImg" />
+      <NuxtImg :src="SECTIONS[sectionIndex].image" class="styledImg" />
 
-      <p class="indent" style="font-size: 40px; font-weight: bold; margin-bottom: 0px;">Hello, Welcome!</p>
-      <p class="indent" style="font-size: 25px; margin-top: 0px;">This is my portfolio!</p>
+      <p class="indent" style="font-size: 40px; font-weight: bold; margin-bottom: 0px;">{{ SECTIONS[sectionIndex].title }}</p>
+      <p class="indent" style="font-size: 25px; margin-top: 0px;">{{ SECTIONS[sectionIndex].subtitle}}</p>
 
       <ProgressBar :percentage="percent" />
       
       <div class="center-align" style="gap: 30px; margin: 30px 0px 30px">
-          <IconButton :href="previousHref()" src="/icons/previous_button.svg" :newTab="false" :pointer="true" :size="56"/>
-          <IconButton href="" src="/icons/pause_button.svg" :newTab="false" :size="56"/>
-          <IconButton :href="nextHref()" src="/icons/next_button.svg" :newTab="false" :pointer="true" :size="56"/>
+          <IconButton :href="previousHref()" src="/icons/previous_button.svg" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
+          <IconButton href="" src="/icons/pause_button.svg" :newTab="false" :size="56" :highlighted="false" />
+          <IconButton :href="nextHref()" src="/icons/next_button.svg" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
       </div>
 
       <div class="center-align" style="gap: 20px;">
-          <IconButton href="https://open.spotify.com/user/andrew03330?si=abf7a454d86942d3" :newTab="true" src="/icons/spotify.svg" :size="36"/>
-          <IconButton href="https://github.com/aceeedev" :newTab="true" src="/icons/github.svg" :size="36"/>
-          <IconButton href="https://linkedin.com/in/andrew-michael-collins/" :newTab="true" src="/icons/linkedin.svg" :size="36"/>
+          <IconButton :href="LINKS.spotify.link" :newTab="true" :src="LINKS.spotify.icon" :size="36" :highlighted="false" />
+          <IconButton :href="LINKS.github.link" :newTab="true" :src="LINKS.github.icon" :size="36" :highlighted="false" />
+          <IconButton :href="LINKS.linkedin.link" :newTab="true" :src="LINKS.linkedin.icon" :size="36" :highlighted="false" />
       </div>
 
   </div>
@@ -26,35 +26,47 @@
 
 <script setup lang="ts">
   const props = defineProps<{
-    currentPercentage: number,
-    currentSectionIndex: number
+    percentage: number,
+    sectionIndex: number,
   }>()
 </script>
 
 <script lang="ts">
+  import { LINKS, SECTIONS } from "~/constants/index" 
+
   const sectionIDs = ["home", "about", "projects", "experience", "contact"]
 
   export default {
     computed: {
+      LINKS() {
+        return LINKS;
+      },
+      SECTIONS() {
+        return SECTIONS;
+      },
       percent(): string  {
-        return this.currentPercentage.toString()
+        return this.percentage.toString()
       }
     },
     methods: {
       previousHref(): string {
         let href = "home"
 
-        if (this.currentSectionIndex > 0) {
-          href = sectionIDs[this.currentSectionIndex - 1];
-        }
+        if (this.sectionIndex > 0) {
+          href = sectionIDs[this.sectionIndex - 1];
 
+          this.$emit('addToSectionIndex', -1)
+        }
+    
         return href;
       },
       nextHref(): string {
         let href = "contact"
 
-        if (this.currentSectionIndex < sectionIDs.length - 1) {
-          href = sectionIDs[this.currentSectionIndex + 1];
+        if (this.sectionIndex < sectionIDs.length - 1) {
+          href = sectionIDs[this.sectionIndex + 1];
+
+          this.$emit('addToSectionIndex', 1)
         }
 
         return href;

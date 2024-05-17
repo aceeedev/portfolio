@@ -14,29 +14,32 @@
     size?: number;
     newTab?: boolean;
     pointer?: boolean;
+    highlighted: boolean;
   }>()
 </script>
 
 <script lang="ts">
+  import { goToSection } from '~/constants/index';
+
   export default {
     computed: {
       imgStyle(): string {
-        if (this.size === null) {
-          return "";
+        let style = "";
+
+        if (this.highlighted) {
+          style += "filter: invert(62%) sepia(15%) saturate(760%) hue-rotate(102deg) brightness(95%) contrast(89%);";
+        }
+
+        if (this.size !== null) {
+          style += `width: ${this.size}px`;
         }
         
-        return `width: ${this.size}px`;
+        return style;
       },
       aStyle(): string {
         return (this.pointer || this.pointer === null) ? "cursor: pointer;" : "";
-      }
+      },
     },
-    methods: {
-      goToSection(sectionID: string) {
-        const element = document.getElementById(sectionID);
-        element!.scrollIntoView({behavior: 'smooth'}); 
-      }
-    }
   }
 </script>
 

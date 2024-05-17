@@ -1,7 +1,13 @@
 // Interfaces
 type Link = Readonly<{
-    href: string;
+    link: string;
     icon: string;
+}>;
+
+type Section = Readonly<{
+    title: string;
+    subtitle: string;
+    image: string;
 }>;
 
 type Project = Readonly<{
@@ -14,12 +20,48 @@ type Project = Readonly<{
 
 
 // Constants:
-export const LINKS: any = {
+export const LINKS: Record<string, Link> = {
     'spotify': {
-        'href': 'https://open.spotify.com/user/andrew03330?si=abf7a454d86942d3',
+        'link': 'https://open.spotify.com/user/andrew03330?si=abf7a454d86942d3',
         'icon': '/icons/spotify.svg',
+    },
+    'github': {
+        'link': 'https://github.com/aceeedev',
+        'icon': '/icons/github.svg',
+    },
+    'linkedin': {
+        'link': 'https://linkedin.com/in/andrew-michael-collins',
+        'icon': '/icons/linkedin.svg',
     }
-}
+};
+
+export const SECTIONS: Array<Section> = [
+    {
+        'title': 'Hello, Welcome!',
+        'subtitle': 'This is my portfolio!',
+        'image': '/images/sections/intro.png',
+    },
+    {
+        'title': 'Learn About Me',
+        'subtitle': 'and explore my music taste',
+        'image': '/images/sections/intro.png',
+    },
+    {
+        'title': 'I <3 Projects',
+        'subtitle': 'Check out what I\'m cooking',
+        'image': '/images/sections/intro.png',
+    },
+    {
+        'title': 'My Journey',
+        'subtitle': 'Building community matters',
+        'image': '/images/sections/intro.png',
+    },
+    {
+        'title': 'Let\'s Connect',
+        'subtitle': 'Always open to have a chat',
+        'image': '/images/sections/intro.png',
+    },
+];
 
 export const PROJECTS: Array<Project> = [
     {
@@ -71,4 +113,14 @@ export const PROJECTS: Array<Project> = [
         'links': [{'link': 'https://py.andrewcollins.xyz/', 'name': 'Website'}],
         'tags': ['Web', 'Next.js', 'Netlify'],
     },
-]
+];
+
+// Functions:
+export function goToSection(sectionID: string)  {
+    const element = document.getElementById(sectionID);
+
+    window.scrollTo({
+      top: window.scrollY + element!.getBoundingClientRect().top, 
+      behavior: "smooth",
+    });
+};

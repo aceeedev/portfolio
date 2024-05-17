@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div v-if="isMockup">
-            <MockupDevice :currentPercentage="currentPercentage" :currentSectionIndex="currentSectionIndex" style="grid-column: 1;"/>
+            <MockupDevice :percentage="currentPercentage" :sectionIndex="currentSectionIndex" style="grid-column: 1;"/>
         </div>
         <div style="grid-column: 2;">
             <section class="hero" id="home" style="margin-top: 0; height: 100vh;">
@@ -64,8 +64,12 @@
     </div>
 </template>
 
+<script setup lang="ts">
+  const props = defineProps<{}>()
+</script>
+
 <script lang="ts">
-    import { LINKS, PROJECTS } from "~/constants/index" 
+    import { PROJECTS, goToSection } from '~/constants/index';
     
     let sections: NodeListOf<HTMLElement> | [] = [];
 
@@ -82,7 +86,7 @@
     mounted() {
         // scrolling related   
         sections = document.querySelectorAll('section');
-        this.scrollFunc = this.throttle(this.scrollEvent, 10);
+        this.scrollFunc = this.throttle(this.scrollEvent, 3);
         this.scrollFunc(); // initially set bar
 
         window.addEventListener('scroll', this.scrollFunc);
@@ -139,23 +143,16 @@
       findVisibility(element: any) {
         const rect = element.getBoundingClientRect();
 
-        let percent = (rect.bottom / rect.height) * 100;
+        let percent = ((rect.bottom - 10) / rect.height) * 100;
         percent = percent < 0 ? 0 : (percent > 100 ? 0 : percent);
 
         return percent;
       },
-        goToSection(sectionID: string) {
-            const element = document.getElementById(sectionID);
-            element!.scrollIntoView({behavior: 'smooth'}); 
-        }
     },
     computed: {
-        LINKS() {
-            return LINKS;
-        },
         PROJECTS() {
             return PROJECTS;
-        }
+        },
     }
   }
 </script>

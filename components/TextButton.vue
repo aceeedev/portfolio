@@ -1,7 +1,10 @@
 <template>
-  <a :href="href" :target="target" class="btn" style="text-decoration: none; white-space: nowrap;"> 
+  <a v-if="href !== ''" :href="href" :target="target" class="btn"> 
     <slot> </slot> 
   </a> 
+  <a v-else class="btn">
+    <slot></slot>
+  </a>
 </template>
 
 <script setup lang="ts">
@@ -23,5 +26,7 @@
     font-size: 35px;
     color: white;
     cursor: pointer;
+    text-decoration: none; 
+    white-space: nowrap;
   }
 </style>
