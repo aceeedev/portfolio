@@ -55,11 +55,8 @@
                 <h1>Experience</h1>
             </section>
 
-            <section id="contact">
+            <section id="contact" style="height: 101vh;">
                 <h1>Contact</h1>
-            </section>
-            <section id="ghost" style="height: 10vh;">
-
             </section>
         </div>
 
@@ -116,14 +113,13 @@
           }
       },
       scrollEvent() {
-        // console.log(this.findVisibility(sections[0]))
-        // console.log(this.findVisibility(sections[1]))
-        // console.log(this.findVisibility(sections[2]))
-        // console.log(this.findVisibility(sections[3]))
-        // console.log(this.findVisibility(sections[4]))
-        // console.log(this.findVisibility(sections[5]))
-        // console.log(`section id: ${this.currentSectionIndex}`)
-        // console.log("\n ")
+        console.log(this.findVisibility(sections[0]))
+        console.log(this.findVisibility(sections[1]))
+        console.log(this.findVisibility(sections[2]))
+        console.log(this.findVisibility(sections[3]))
+        console.log(this.findVisibility(sections[4]))
+        console.log(`section id: ${this.currentSectionIndex}`)
+        console.log("\n ")
         for (let i = sections.length - 1; i >= 0; i--) {
           //console.log(`i: ${i}`)
           let section = sections[i];
@@ -133,7 +129,7 @@
           
           if (percent != 0) {
             this.currentPercentage = percent;
-            this.currentSectionIndex = i - 1;
+            this.currentSectionIndex = i;
             //console.log(this.currentSectionIndex);
             
             break;
@@ -141,12 +137,12 @@
         } 
       },
       findVisibility(element: any) {
-        const windowBottom = window.scrollY + window.innerHeight;
-        const elementTop = element.offsetTop;
-        const elementHeight = element.offsetHeight;
-        const percentage = ((windowBottom - (elementTop - elementHeight)) / elementHeight) * 100;
+        const rect = element.getBoundingClientRect();
 
-        return percentage >= 100 ? 0 : (percentage <= 0 ? 0 : Math.round(percentage));
+        let percent = (rect.bottom / rect.height) * 100;
+        percent = percent < 0 ? 0 : (percent > 100 ? 0 : percent);
+
+        return percent;
       },
         goToSection(sectionID: string) {
             const element = document.getElementById(sectionID);

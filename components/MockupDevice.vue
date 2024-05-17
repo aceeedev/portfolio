@@ -76,7 +76,7 @@
   }
 
   .indent {
-      padding-left: 40px;
+      padding-left: 20px;
   }
 
   .styledImg {
