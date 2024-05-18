@@ -53,6 +53,7 @@
 
             <section id="experience">
                 <h1>Experience</h1>
+                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey"></CardGroup>
             </section>
 
             <section id="contact" style="height: 101vh;">
@@ -69,7 +70,7 @@
 </script>
 
 <script lang="ts">
-    import { PROJECTS, goToSection } from '~/constants/index';
+    import { PROJECTS, EXPERIENCES, goToSection } from '~/constants/index';
     
     let sections: NodeListOf<HTMLElement> | [] = [];
 
