@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Card v-if="condensed" :title="mainCard.title" :src="mainCard.image" :links="mainCard.links" :date="mainCard.date" :tags="[]" :dots="false">
+    <Card v-if="condensed" :title="mainCard.title" :src="mainCard.image" :links="mainCard.links" :date="mainCard.date" :tags="[]" :dots="false" :isDesktop="isDesktop">
       {{ mainCard.description }}
     </Card>
 
-    <Card v-else v-for="(item, index) in journeyCards" :title="item.title" :src="item.image" :links="item.links" :date="item.date" :tags="[]" :dots="index != journeyCards.length - 1" style="margin-bottom: 30px;">
+    <Card v-else v-for="(item, index) in journeyCards" :title="item.title" :src="item.image" :links="item.links" :date="item.date" :tags="[]" :dots="index != journeyCards.length - 1" :isDesktop="isDesktop" style="margin-bottom: 30px;">
       {{ item.description }}
     </Card>
     
@@ -20,6 +20,7 @@
   const props = defineProps<{
     mainCard: Experience;
     journeyCards: Array<Experience>;
+    isDesktop: boolean;
   }>();
 </script>
 

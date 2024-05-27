@@ -1,17 +1,12 @@
 
 <template>
-  <div style="display: flex; flex-direction: row;">
+  <div :style="computedStyle">
     <div>
       <div class="img-frame">
         <NuxtImg :src="src" width="200px" height="200" style="border-radius: 12px;"/>
       </div>
       
       <div v-if="dots" class="dotted-line"></div>
-
-
-      <!-- <div v-if="dots" class="dots-group">
-        <div class="dots"></div>
-      </div> -->
     </div>
 
     <div>
@@ -56,6 +51,7 @@
     links: Array<string | {link: string; name: string;}>,
     date: string,
     dots: boolean,
+    isDesktop: boolean,
   }>()
 </script>
 
@@ -82,7 +78,10 @@
           
           return itm;
         });
-      }
+      },
+      computedStyle() {
+        return `display: flex; flex-direction: ${this.isDesktop ? 'row' : 'column'};`;
+      },
     }
   }
 </script>
@@ -134,24 +133,5 @@
     width: 45%;
     border-right: thick dotted white;
   }
-
-  /* .dots-group {
-    display: flex;
-    height: 100%;
-    margin-left: 100px;
-  }
-
-  .dots {
-    overflow: hidden;
-    word-wrap: break-word;
-    color: #999;
-    letter-spacing: 5px;
-    writing-mode: tb-rl;
-  }
-
-  .dots:after {
-    writing-mode: tb-rl;
-    content: '●●●●●●●●●●●●●●●●●●●●●●●●●●●';
-  } */
 
 </style>

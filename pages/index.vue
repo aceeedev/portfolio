@@ -46,19 +46,19 @@
 
             <section id="projects">
                 <h1>Featured Projects</h1>
-                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 60px" :dots="false">
+                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 60px" :dots="false" :isDesktop="isDesktop">
                         {{ project.description }}
                 </Card>
             </section>
 
             <section id="experience">
                 <h1>Experience</h1>
-                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" style="margin-bottom: 60px;"></CardGroup>
+                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" :isDesktop="isDesktop" style="margin-bottom: 60px;"></CardGroup>
             </section>
 
             <section id="contact" style="height: 101vh;">
                 <h1>Contact</h1>
-                <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 35%;">
                     <p><a href="mailto:andrewmcollins3.com" class ="highlight" style="">andrewmcollins3@gmail.com</a></p>
 
                     <IconLinks :iconSize="48" :iconGap="24" :highlighted="false" />
@@ -82,8 +82,8 @@
   export default {
     data:() => {
         return {
-            isDesktop: true,
             isMockup: true,
+            isDesktop: true,
             currentPercentage: 1,
             currentSectionIndex: 0,
             scrollFunc: () => {},
@@ -107,9 +107,6 @@
         window.removeEventListener("resize", this.checkScreenSize);
     },
     methods: {
-        checkScreenSize() {
-            this.isMockup = window.innerWidth > 990;
-        },
         throttle(callbackFn: any, limit: number) {
           let wait = false;                  
           return function () {              
@@ -153,6 +150,10 @@
         percent = percent < 0 ? 0 : (percent > 100 ? 0 : percent);
 
         return percent;
+      },
+      checkScreenSize() {
+        this.isMockup = window.innerWidth > 990;
+        this.isDesktop = window.innerWidth > 660;
       },
     },
     computed: {

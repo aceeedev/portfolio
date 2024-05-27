@@ -204,7 +204,7 @@ export const EXPERIENCES: Array<{main: Experience; journey: Array<Experience>;}>
 ]
 
 // Functions:
-export function goToSection(sectionID: string)  {
+export function goToSection(sectionID: string) {
     const element = document.getElementById(sectionID);
 
     window.scrollTo({
