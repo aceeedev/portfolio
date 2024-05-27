@@ -1,8 +1,17 @@
 
 <template>
   <div style="display: flex; flex-direction: row;">
-    <div class="img-frame">
-      <NuxtImg :src="src" width="200px" height="200" style="border-radius: 12px;"/>
+    <div>
+      <div class="img-frame">
+        <NuxtImg :src="src" width="200px" height="200" style="border-radius: 12px;"/>
+      </div>
+      
+      <div v-if="dots" class="dotted-line"></div>
+
+
+      <!-- <div v-if="dots" class="dots-group">
+        <div class="dots"></div>
+      </div> -->
     </div>
 
     <div>
@@ -46,6 +55,7 @@
     tags: Array<string>,
     links: Array<string | {link: string; name: string;}>,
     date: string,
+    dots: boolean,
   }>()
 </script>
 
@@ -118,5 +128,30 @@
     object-fit: cover;
     margin-right: 30px;
   }
+
+  .dotted-line {
+    height: 100%;
+    width: 45%;
+    border-right: thick dotted white;
+  }
+
+  /* .dots-group {
+    display: flex;
+    height: 100%;
+    margin-left: 100px;
+  }
+
+  .dots {
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #999;
+    letter-spacing: 5px;
+    writing-mode: tb-rl;
+  }
+
+  .dots:after {
+    writing-mode: tb-rl;
+    content: '●●●●●●●●●●●●●●●●●●●●●●●●●●●';
+  } */
 
 </style>

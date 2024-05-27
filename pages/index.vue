@@ -46,14 +46,14 @@
 
             <section id="projects">
                 <h1>Featured Projects</h1>
-                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 30px">
+                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 60px" :dots="false">
                         {{ project.description }}
                 </Card>
             </section>
 
             <section id="experience">
                 <h1>Experience</h1>
-                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey"></CardGroup>
+                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" style="margin-bottom: 60px;"></CardGroup>
             </section>
 
             <section id="contact" style="height: 101vh;">
@@ -103,7 +103,7 @@
     },
     methods: {
         checkScreenSize() {
-            this.isMockup = window.innerWidth > 770;
+            this.isMockup = window.innerWidth > 990;
         },
         throttle(callbackFn: any, limit: number) {
           let wait = false;                  
@@ -118,13 +118,13 @@
           }
       },
       scrollEvent() {
-        console.log(this.findVisibility(sections[0]))
-        console.log(this.findVisibility(sections[1]))
-        console.log(this.findVisibility(sections[2]))
-        console.log(this.findVisibility(sections[3]))
-        console.log(this.findVisibility(sections[4]))
-        console.log(`section id: ${this.currentSectionIndex}`)
-        console.log("\n ")
+        // console.log(this.findVisibility(sections[0]))
+        // console.log(this.findVisibility(sections[1]))
+        // console.log(this.findVisibility(sections[2]))
+        // console.log(this.findVisibility(sections[3]))
+        // console.log(this.findVisibility(sections[4]))
+        // console.log(`section id: ${this.currentSectionIndex}`)
+        // console.log("\n ")
         for (let i = sections.length - 1; i >= 0; i--) {
           //console.log(`i: ${i}`)
           let section = sections[i];
