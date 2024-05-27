@@ -4,14 +4,14 @@
         
         <div :style="contentStyle">
             <section class="hero" id="home" style="margin-top: 0; height: 100vh;">
-                <h1 style="margin: 0px">I'm <span class="highlight">Andrew Collins</span></h1>
+                <h1 style="margin: 0px">I'm <br v-if="!isDesktop" /> <span class="highlight">Andrew Collins</span></h1>
                 <p>
                     I'm committed to fostering collaboration, communication, and the opportunity to 
                     learn from others! Please feel free to explore my work below or reach out to 
                     me here!
                 </p>
                 <div style="display: flex; gap: 50px">
-                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px;"/> </TextButton>
+                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px; margin-left: 10px;" /> </TextButton>
                     <TextButton @click="goToSection('projects')" href="" target="">Projects!</TextButton>
                 </div>
             </section>
