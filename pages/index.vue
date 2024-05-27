@@ -58,6 +58,11 @@
 
             <section id="contact" style="height: 101vh;">
                 <h1>Contact</h1>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <p><a href="mailto:andrewmcollins3.com" class ="highlight" style="">andrewmcollins3@gmail.com</a></p>
+
+                    <IconLinks :iconSize="48" :iconGap="24" :highlighted="false" />
+                </div>
             </section>
         </div>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="mockup">
-      <p class="center-align" style="font-size: 20px; font-weight: bold">Andrew Collins</p>
+      <p class="center-align" style="font-size: 30px; font-weight: bold; margin-top: 10px; margin-bottom: 10px;">Andrew Collins</p>
 
       <NuxtImg :src="SECTIONS[sectionIndex].image" class="styledImg" />
 
@@ -15,11 +15,7 @@
           <IconButton :href="nextHref()" src="/icons/next_button.svg" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
       </div>
 
-      <div class="center-align" style="gap: 20px;">
-          <IconButton :href="LINKS.spotify.link" :newTab="true" :src="LINKS.spotify.icon" :size="36" :highlighted="false" />
-          <IconButton :href="LINKS.github.link" :newTab="true" :src="LINKS.github.icon" :size="36" :highlighted="false" />
-          <IconButton :href="LINKS.linkedin.link" :newTab="true" :src="LINKS.linkedin.icon" :size="36" :highlighted="false" />
-      </div>
+      <IconLinks :iconSize="36" :iconGap="20" :highlighted="false"/>
 
   </div>
 </template>
@@ -32,15 +28,12 @@
 </script>
 
 <script lang="ts">
-  import { LINKS, SECTIONS } from "~/constants/index" 
+  import { SECTIONS } from "~/constants/index" 
 
   const sectionIDs = ["home", "about", "projects", "experience", "contact"]
 
   export default {
     computed: {
-      LINKS() {
-        return LINKS;
-      },
       SECTIONS() {
         return SECTIONS;
       },

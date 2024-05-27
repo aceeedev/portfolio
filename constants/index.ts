@@ -52,22 +52,22 @@ export const SECTIONS: Array<Section> = [
     {
         'title': 'Learn About Me',
         'subtitle': 'and explore my music taste',
-        'image': '/images/sections/intro.png',
+        'image': '/images/sections/about.jpg',
     },
     {
         'title': 'I <3 Projects',
         'subtitle': 'Check out what I\'m cooking',
-        'image': '/images/sections/intro.png',
+        'image': '/images/sections/projects.jpg',
     },
     {
         'title': 'My Journey',
         'subtitle': 'Building community matters',
-        'image': '/images/sections/intro.png',
+        'image': '/images/sections/experiences.jpg',
     },
     {
         'title': 'Let\'s Connect',
         'subtitle': 'Always open to have a chat',
-        'image': '/images/sections/intro.png',
+        'image': '/images/sections/contact.jpg',
     },
 ];
 
