@@ -1,9 +1,8 @@
 <template>
-    <div class="container">
-        <div v-if="isMockup">
-            <MockupDevice :percentage="currentPercentage" :sectionIndex="currentSectionIndex" style="grid-column: 1;"/>
-        </div>
-        <div style="grid-column: 2;">
+    <div :style="containerStyle">
+        <MockupDevice v-if="isMockup" :percentage="currentPercentage" :sectionIndex="currentSectionIndex" :style="mockupStyle"/>
+        
+        <div :style="contentStyle">
             <section class="hero" id="home" style="margin-top: 0; height: 100vh;">
                 <h1 style="margin: 0px">I'm <span class="highlight">Andrew Collins</span></h1>
                 <p>
@@ -66,7 +65,7 @@
             </section>
         </div>
 
-        <NavBar :sectionIndex="currentSectionIndex" style="grid-column: 3;"/>
+        <NavBar :sectionIndex="currentSectionIndex" :style="navBarStyle" :isDesktop="isDesktop" />
     </div>
 </template>
 
@@ -160,16 +159,28 @@
         PROJECTS() {
             return PROJECTS;
         },
+        containerStyle() {
+            return this.isDesktop ? `
+                display: grid;
+                gap: 50px;
+            ` : `
+                padding: 10px;
+            `
+        },
+        mockupStyle() {
+            return this.isDesktop ? 'grid-column: 1;' : ';';
+        },
+        contentStyle() {
+            return this.isDesktop ? 'grid-column: 2;' : ';';
+        },
+        navBarStyle() {
+            return this.isDesktop ? 'grid-column: 3;' : ';';
+        },
     }
   }
 </script>
 
 <style>
-    .container {
-        display: grid;
-        gap: 50px;
-    }
-
     section {
         margin-top: 10%;
     }
