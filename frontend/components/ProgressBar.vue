@@ -16,10 +16,47 @@
         getPercent(num: string) {
           let percent: string = parseFloat(num).toFixed(0) + "%";
 
+          // calculate hyperbolic tangent func for offset, crazy math
+          // const x = parseFloat(num);
+          // const rate = 50.0;
+          // const scale = 10.0;
+          // let offset = ((Math.E^(x/rate) - Math.E^(-1*x/rate)) / (Math.E^(x/rate) + Math.E^(-1*x/rate))) * scale
+          
+          // offset fix for now:
+          // upper bound
+          if (parseInt(num) >= 75) {
+            percent += " - 2px";
+          }
+          if (parseInt(num) >= 80) {
+            percent += " - 2px";
+          }
           if (parseInt(num) >= 85) {
-            percent += " - 10px";
+            percent += " - 2px";
+          }
+          if (parseInt(num) >= 90) {
+            percent += " - 2px";
+          }
+          if (parseInt(num) >= 95) {
+            percent += " - 2px";
           }
 
+          // lower bound
+          if (parseInt(num) <= 5) {
+            percent += " + 2px";
+          }
+          if (parseInt(num) <= 10) {
+            percent += " + 2px";
+          }
+          if (parseInt(num) <= 15) {
+            percent += " + 2px";
+          }
+          if (parseInt(num) <= 20) {
+            percent += " + 2px";
+          }
+          if (parseInt(num) <= 25) {
+            percent += " + 2px";
+          }
+    
           return percent;
         },
       }

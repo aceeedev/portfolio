@@ -195,7 +195,7 @@ export const EXPERIENCES: Array<{main: Experience; journey: Array<Experience>;}>
         'main': {
             'title': 'NexStream Technical Education, Project Lead',
             'description': 'Coordinated team of students to create online virtual classroom web app using WebGL, Unity, and dedicated servers. Managed project vision, delegated tasks through a Scrum model, and handled documentation to keep team productive.',
-            'image': '/images/experiences/nexstream.png',
+            'image': '/images/experiences/nexstream.jpg',
             'date': 'Aug 2021 - Dec 2021',
             'links': [],
         },

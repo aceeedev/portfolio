@@ -20,9 +20,10 @@
     computed: {
       navBarStyle() {
         return this.isDesktop ? `
-          height: max(50vh, 300px);
+          height: min(600px, max(50vh, 300px));
           width: 60px;
-          top: 25%;
+          top: 50%;
+          transform: translateY(-50%);
           position: sticky; 
           box-sizing: border-box;
           border: 4px solid var(--gray);

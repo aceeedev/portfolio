@@ -44,3 +44,10 @@ img.circle {
     border-radius: 50%;
     padding: 5px;;
 }
+
+.img-frame {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 30px;
+  }

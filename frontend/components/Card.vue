@@ -121,13 +121,6 @@
     font-size: 25px;
   }
 
-  .img-frame {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-right: 30px;
-  }
-
   .dotted-line {
     height: 100%;
     width: 45%;

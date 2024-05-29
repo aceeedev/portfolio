@@ -1,19 +1,25 @@
 <template>
     <div :style="containerStyle">
-        <MockupDevice v-if="isMockup" :percentage="currentPercentage" :sectionIndex="currentSectionIndex" :style="mockupStyle"/>
+        <div v-if="isMockup" :style="mockupStyle"></div>
+        <MockupDevice v-if="isMockup" :percentage="currentPercentage" :sectionIndex="currentSectionIndex" />
         
         <div :style="contentStyle">
-            <section class="hero" id="home" style="margin-top: 0; height: 100vh;">
+            <section class="hero fullscreenHeight" id="home" style="margin-top: 0;">
+                <div v-if="!isMockup" class="img-frame" style="margin-bottom: 16px;">
+                    <NuxtImg src="/images/sections/intro.png" width="200px" height="200" style="border-radius: 12px;"/>
+                </div>
+
                 <h1 style="margin: 0px">I'm <br v-if="!isDesktop" /> <span class="highlight">Andrew Collins</span></h1>
                 <p>
                     I'm committed to fostering collaboration, communication, and the opportunity to 
                     learn from others! Please feel free to explore my work below or reach out to 
                     me here!
                 </p>
-                <div style="display: flex; gap: 50px">
+                <div :style="heroButtonStyle" :class="isMockup ? '' : 'center-align'">
                     <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px; margin-left: 10px;" /> </TextButton>
                     <TextButton @click="goToSection('projects')" href="" target="">Projects!</TextButton>
                 </div>
+                <IconLinks v-if="!isMockup" :iconSize="64" :iconGap="20" :highlighted="false" style="margin-top: 16px"/>
             </section>
 
             <section id="about">
@@ -43,7 +49,7 @@
                 <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" :isDesktop="isDesktop" style="margin-bottom: 60px;"></CardGroup>
             </section>
 
-            <section id="contact" style="height: 101vh;">
+            <section id="contact" class="fullscreenHeight">
                 <h1>Contact</h1>
                 <div style="display: flex; flex-direction: column; align-items: center; margin-top: 35%;">
                     <p><a href="mailto:andrewmcollins3.com" class ="highlight" style="">andrewmcollins3@gmail.com</a></p>
@@ -51,9 +57,16 @@
                     <IconLinks :iconSize="48" :iconGap="24" :highlighted="false" />
                 </div>
             </section>
+
+            <div style="text-align: center;">
+                <p>Hand crafted from Nuxt (Vue.js), CSS, and love!</p>
+                <p style="font-size: 20px; margin-top: 0px;">©2024 by Andrew Collins</p>
+            </div>
         </div>
 
-        <NavBar :sectionIndex="currentSectionIndex" :style="navBarStyle" :isDesktop="isDesktop" />
+        <NavBar :sectionIndex="currentSectionIndex" :isDesktop="isDesktop" :style="navBarStyle" />
+
+        <div v-if="!isDesktop" style="height: 60px;"></div>
     </div>
 </template>
 
@@ -155,8 +168,11 @@
                 padding: 10px;
             `
         },
+        heroButtonStyle() {
+            return this.isDesktop ? 'display: flex; gap: 50px' : 'display: flex; gap: 30px;';
+        },
         mockupStyle() {
-            return this.isDesktop ? 'grid-column: 1;' : ';';
+            return this.isDesktop ? 'grid-column: 1; width: max(370px, min(25vw, 360px));' : '';
         },
         contentStyle() {
             return this.isDesktop ? 'grid-column: 2;' : ';';
@@ -177,5 +193,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .fullscreenHeight {
+        height: min(100vh, 1400px)
     }
 </style>
