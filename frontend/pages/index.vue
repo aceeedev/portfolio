@@ -11,9 +11,8 @@
 
                 <h1 style="margin: 0px">I'm <br v-if="!isDesktop" /> <span class="highlight">Andrew Collins</span></h1>
                 <p>
-                    I'm committed to fostering collaboration, communication, and the opportunity to 
-                    learn from others! Please feel free to explore my work below or reach out to 
-                    me here!
+                    I am dedicated to promoting innovation, collaboration, and continuous learning from everyone I meet. 
+                    Please explore my work below and feel free to reach out!
                 </p>
                 <div :style="heroButtonStyle" :class="isMockup ? '' : 'center-align'">
                     <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px; margin-left: 10px;" /> </TextButton>
@@ -25,13 +24,12 @@
             <section id="about">
                 <h1 id="about">About Me</h1>
                 <p>
-                    Hello my name is Andrew and I am a driven computer science and engineering student 
-                    at Santa Clara University. Confident in my ability to thrive in collaborative environments 
-                    and excited to learn new skills, I am eager to explore diverse opportunities and industries 
-                    with a shared emphasis on technology, informing my professional career along the way. 
+                    Hello! My name is Andrew, and I am a passionate Computer Science and Engineering student at Santa Clara University. 
+                    I thrive in collaborative environments and am always eager to learn new skills. 
+                    As a firm believer in lifelong learning, I am excited to gain insights from diverse perspectives and experiences.
                 </p>
                 <p>
-                    In my spare time, I'll be found hiking vast lands, lost in a book, brewing savory coffee, or finding hidden indie music.
+                    In my spare time, I'll be found hiking vast lands, lost in a book, brewing savory coffee, or searching for hidden indie music.
                 </p>
 
                 <CurrentSong :isDesktop="isDesktop"/>
