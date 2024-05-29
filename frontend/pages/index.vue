@@ -152,7 +152,7 @@
         return percent;
       },
       checkScreenSize() {
-        this.isMockup = window.innerWidth > 990;
+        this.isMockup = window.innerWidth > 990 && window.innerHeight > 600;
         this.isDesktop = window.innerWidth > 660;
       },
     },

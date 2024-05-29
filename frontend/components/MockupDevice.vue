@@ -2,7 +2,7 @@
   <div class="mockup">
       <p class="center-align" style="font-size: 30px; font-weight: bold; margin-top: 10px; margin-bottom: 10px; height: 5%;">Andrew Collins</p>
 
-      <NuxtImg :src="SECTIONS[sectionIndex].image" class="styledImg" />
+      <NuxtImg preload :src="SECTIONS[sectionIndex].image" class="styledImg" />
       
       <div style="height: 12%;">
         <p class="indent" style="font-size: 40px; font-weight: bold; margin-bottom: 0px;">{{ SECTIONS[sectionIndex].title }}</p>
@@ -89,7 +89,7 @@
 
   .styledImg {
     border-radius: 12px; 
-    height: 330px; 
+    height: min(330px, 40%); 
     display: block; 
     margin-right: auto;
     margin-left: auto;

@@ -3,7 +3,7 @@
   <div :style="computedStyle">
     <div>
       <div class="img-frame">
-        <NuxtImg :src="src" width="200px" height="200" style="border-radius: 12px;"/>
+        <NuxtImg preload :src="src" width="200px" height="200" style="border-radius: 12px;" />
       </div>
       
       <div v-if="dots" class="dotted-line"></div>
