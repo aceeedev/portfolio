@@ -15,7 +15,6 @@
 </script>
 
 <script lang="ts">
-
   import { LINKS } from "~/constants/index" 
 
 

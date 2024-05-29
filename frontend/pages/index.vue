@@ -27,20 +27,8 @@
                 <p>
                     In my spare time, I'll be found hiking vast lands, lost in a book, brewing savory coffee, or finding hidden indie music.
                 </p>
-                <div class="center-align" style="margin-top: 50px; gap: 50px; display: flex; align-items: center;">
-                    <p style="text-align: center;">
-                        What I'm currently <br> jamming out to 🕺  
-                    </p>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <NuxtImg src="/images/sections/intro.png" height="200"; style="border-radius: 20px;"/>
-                        <p style="margin-bottom: 0px; margin-top: 10px; font-weight: bold; text-align: center;">
-                            Oogway Ascends
-                        </p>
-                        <p style="margin-top: 0px; text-align: center;">
-                            Hans Zimmer, John Powell
-                        </p>
-                    </div>
-                </div>
+
+                <CurrentSong :isDesktop="isDesktop"/>
             </section>
 
             <section id="projects">

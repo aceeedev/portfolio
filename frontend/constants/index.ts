@@ -203,6 +203,8 @@ export const EXPERIENCES: Array<{main: Experience; journey: Array<Experience>;}>
     }
 ]
 
+export const DOG_PICS: Array<string> = ['/images/misc/buddy.jpg', '/images/misc/maddie.jpg']
+
 // Functions:
 export function goToSection(sectionID: string) {
     const element = document.getElementById(sectionID);
