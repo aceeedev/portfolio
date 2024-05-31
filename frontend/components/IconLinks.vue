@@ -1,8 +1,8 @@
 <template>
   <div class="center-align" :style="gapStyle">
-          <IconButton :href="LINKS.spotify.link" :newTab="true" :src="LINKS.spotify.icon" :size="iconSize" :highlighted="highlighted" />
-          <IconButton :href="LINKS.github.link" :newTab="true" :src="LINKS.github.icon" :size="iconSize" :highlighted="highlighted" />
-          <IconButton :href="LINKS.linkedin.link" :newTab="true" :src="LINKS.linkedin.icon" :size="iconSize" :highlighted="highlighted" />
+          <IconButton :href="LINKS.spotify.link" ariaLabel="Spotify" :newTab="true" :src="LINKS.spotify.icon" :size="iconSize" :highlighted="highlighted" />
+          <IconButton :href="LINKS.github.link" ariaLabel="GitHub" :newTab="true" :src="LINKS.github.icon" :size="iconSize" :highlighted="highlighted" />
+          <IconButton :href="LINKS.linkedin.link" ariaLabel="LinkedIn" :newTab="true" :src="LINKS.linkedin.icon" :size="iconSize" :highlighted="highlighted" />
       </div>
 </template>
 

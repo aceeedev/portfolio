@@ -8,7 +8,7 @@
         </div>
 
         <a v-if="data.statusCode == 200" :href="data.body.href" target="_blank" style="cursor: pointer; display: flex; flex-direction: column; align-items: center;">
-            <NuxtImg :src="data.body.image" height="200"; style="border-radius: 20px;"/>
+            <NuxtImg :src="data.body.image" height="200"; alt="Album Cover" style="border-radius: 20px;"/>
 
             <p style="margin-bottom: 0px; margin-top: 10px; font-weight: bold; text-align: center;">
                 {{ data.body.name }}
@@ -18,7 +18,7 @@
             </p>
         </a>
         <div v-else-if="data.statusCode == 204" style="display: flex; flex-direction: column; align-items: center;">
-            <NuxtImg :src="DOG_PICS[Math.floor(Math.random()*DOG_PICS.length)]" height="200"; style="border-radius: 20px;"/>
+            <NuxtImg :src="DOG_PICS[Math.floor(Math.random()*DOG_PICS.length)]" height="200"; alt="My Dog" style="border-radius: 20px;"/>
 
             <p style="margin-top: 10px; text-align: center;">
                 Currently not listening to anything <br/> so here's a pic of my dog &lt;3

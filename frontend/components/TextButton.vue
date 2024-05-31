@@ -2,7 +2,7 @@
   <a v-if="href !== ''" :href="href" :target="target" class="btn"> 
     <slot> </slot> 
   </a> 
-  <a v-else class="btn">
+  <a v-else class="btn" rel="nofollow">
     <slot></slot>
   </a>
 </template>

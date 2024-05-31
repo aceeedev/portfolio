@@ -2,7 +2,7 @@
   <div class="mockup">
       <p class="center-align" style="font-size: 30px; font-weight: bold; margin-top: 10px; margin-bottom: 10px; height: 5%;">Andrew Collins</p>
 
-      <NuxtImg preload :src="SECTIONS[sectionIndex].image" class="styledImg" />
+      <NuxtImg preload :src="SECTIONS[sectionIndex].image" class="styledImg" alt="Section Image" />
       
       <div style="height: 12%;">
         <p class="indent" style="font-size: 40px; font-weight: bold; margin-bottom: 0px;">{{ SECTIONS[sectionIndex].title }}</p>
@@ -12,9 +12,9 @@
       <ProgressBar :percentage="percent" />
       
       <div class="center-align" style="gap: 30px; margin: 30px 0px 30px; height: max(5%, 56px)">
-          <IconButton :href="previousHref()" src="/icons/previous_button.svg" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
-          <IconButton href="" src="/icons/pause_button.svg" :newTab="false" :size="56" :highlighted="false" />
-          <IconButton :href="nextHref()" src="/icons/next_button.svg" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
+          <IconButton :href="previousHref()" src="/icons/previous_button.svg" ariaLabel="Previous Section" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
+          <IconButton href="" src="/icons/pause_button.svg" ariaLabel="Pause" :newTab="false" :size="56" :highlighted="false" />
+          <IconButton :href="nextHref()" src="/icons/next_button.svg" ariaLabel="Next Section" :newTab="false" :pointer="true" :size="56" :highlighted="false" />
       </div>
 
       <IconLinks :iconSize="36" :iconGap="20" :highlighted="false" style="height: 5%" />

@@ -6,7 +6,7 @@
         <div :style="contentStyle">
             <section class="hero fullscreenHeight" id="home" style="margin-top: 0;">
                 <div v-if="!isMockup" class="img-frame" style="margin-bottom: 16px;">
-                    <NuxtImg src="/images/sections/intro.png" width="200px" height="200" style="border-radius: 12px;"/>
+                    <NuxtImg src="/images/sections/intro.png" width="200px" height="200" style="border-radius: 12px;" alt="Picture of me" />
                 </div>
 
                 <h1 style="margin: 0px">I'm <br v-if="!isDesktop" /> <span class="highlight">Andrew Collins</span></h1>
@@ -15,7 +15,7 @@
                     Please explore my work below and feel free to reach out!
                 </p>
                 <div :style="heroButtonStyle" :class="isMockup ? '' : 'center-align'">
-                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px; margin-left: 10px;" /> </TextButton>
+                    <TextButton href="/files/Andrew_Collins_Resume.pdf" target="_blank" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">Résumé <NuxtImg src="/icons/file_text.svg" style="height: 32px; margin-left: 10px;" alt="Resume Icon" /> </TextButton>
                     <TextButton @click="goToSection('projects')" href="" target="">Projects!</TextButton>
                 </div>
                 <IconLinks v-if="!isMockup" :iconSize="64" :iconGap="20" :highlighted="false" style="margin-top: 16px"/>
@@ -37,14 +37,14 @@
 
             <section id="projects">
                 <h1>Featured Projects</h1>
-                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" :tags="project.tags" date="" style="margin-bottom: 60px" :dots="false" :isDesktop="isDesktop">
+                <Card v-for="project in PROJECTS" :title="project.title" :src="project.image" :links="project.links" alt="Project" :tags="project.tags" date="" style="margin-bottom: 60px" :dots="false" :isDesktop="isDesktop">
                         {{ project.description }}
                 </Card>
             </section>
 
             <section id="experience">
                 <h1>Experience</h1>
-                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" :isDesktop="isDesktop" style="margin-bottom: 60px;"></CardGroup>
+                <CardGroup v-for="experience in EXPERIENCES" :mainCard="experience.main" :journeyCards="experience.journey" alt="Experience" :isDesktop="isDesktop" style="margin-bottom: 60px;"></CardGroup>
             </section>
 
             <section id="contact" class="fullscreenHeight">

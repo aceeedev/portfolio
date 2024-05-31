@@ -1,9 +1,9 @@
 <template>
-  <a v-if="newTab" :href="href" target="_blank" class="center-align" :style="aStyle">
-    <NuxtImg :src="src" :style="imgStyle"/>
+  <a v-if="newTab" :href="href" target="_blank" :aria-label="ariaLabel" class="center-align" :style="aStyle">
+    <NuxtImg :src="src" :style="imgStyle" alt="Icon" />
   </a>
-  <a v-else @click="goToSection(href)" class="center-align" :style="aStyle">
-    <NuxtImg :src="src" :style="imgStyle"/>
+  <a v-else @click="goToSection(href)" :aria-label="ariaLabel" class="center-align" rel="nofollow" :style="aStyle">
+    <NuxtImg :src="src" :style="imgStyle" alt="Icon" />
   </a>
 </template>
 
@@ -11,6 +11,7 @@
   const props = defineProps<{
     href: string;
     src: string;
+    ariaLabel: string;
     size?: number;
     newTab?: boolean;
     pointer?: boolean;

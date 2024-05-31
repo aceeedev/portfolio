@@ -3,7 +3,7 @@
   <div :style="computedStyle">
     <div>
       <div class="img-frame">
-        <NuxtImg preload :src="src" width="200px" height="200" style="border-radius: 12px;" />
+        <NuxtImg preload :src="src" width="200px" height="200" :alt="alt" style="border-radius: 12px;" />
       </div>
       
       <div v-if="dots" class="dotted-line"></div>
@@ -46,6 +46,7 @@
 
   const props = defineProps<{
     src: string,
+    alt: string,
     title: string,
     tags: Array<string>,
     links: Array<string | {link: string; name: string;}>,
