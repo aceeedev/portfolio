@@ -4,7 +4,7 @@
         <MockupDevice v-if="isMockup" :percentage="currentPercentage" :sectionIndex="currentSectionIndex" />
         
         <div :style="contentStyle">
-            <section class="hero fullscreenHeight" id="home" style="margin-top: 0;">
+            <section class="hero" id="home" :style="heroSectionStyle">
                 <div v-if="!isMockup" class="img-frame" style="margin-bottom: 16px;">
                     <NuxtImg src="/images/sections/intro.png" width="200px" height="200" style="border-radius: 12px;" alt="Picture of me" />
                 </div>
@@ -165,6 +165,9 @@
             ` : `
                 padding: 10px;
             `
+        },
+        heroSectionStyle() {
+            return this.isDesktop ? 'margin-top: 0; height: min(100vh, 1400px)' : 'margin-top: 0;'
         },
         heroButtonStyle() {
             return this.isDesktop ? 'display: flex; gap: 50px' : 'display: flex; gap: 30px;';
